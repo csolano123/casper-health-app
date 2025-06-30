@@ -114,7 +114,7 @@ with tab5:
     col_icon, col_title = st.columns([0.08, 1])  # Adjust widths as needed
 
     with col_icon:
-        st.image("checklist_icon.png", width=50)  # Make sure this image exists in your project folder
+        st.image("Checklist_icon.png", width=50)  # Make sure this image exists in your project folder
 
     with col_title:
         st.subheader("Ingredients Management")
