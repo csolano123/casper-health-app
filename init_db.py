@@ -27,7 +27,7 @@ cursor.execute('''
     )
 ''')
 
-# Create ingredients table
+# Create ingredients table if it doesn't exist
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS ingredients (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -36,8 +36,20 @@ cursor.execute('''
     )
 ''')
 
-# Commit changes and close connection
+# ---- Add new columns to ingredients table if missing ----
+
+def column_exists(table, column):
+    cursor.execute(f"PRAGMA table_info({table})")
+    return column in [row[1] for row in cursor.fetchall()]
+
+if not column_exists("ingredients", "chemical_class"):
+    cursor.execute("ALTER TABLE ingredients ADD COLUMN chemical_class TEXT")
+
+if not column_exists("ingredients", "large_availability"):
+    cursor.execute("ALTER TABLE ingredients ADD COLUMN large_availability TEXT")
+
+# Commit and close
 conn.commit()
 conn.close()
 
-print("✅ Database initialized")
+print("✅ Database initialized and schema updated")
