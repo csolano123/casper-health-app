@@ -1,6 +1,6 @@
 import sqlite3
 
-# Connect to the database (creates file if it doesn't exist)
+# Connect to the database (creates it if it doesn't exist)
 conn = sqlite3.connect('casper.db')
 cursor = conn.cursor()
 
@@ -27,29 +27,18 @@ cursor.execute('''
     )
 ''')
 
-# Create ingredients table if it doesn't exist
+# Create full ingredients table
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS ingredients (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         medication TEXT,
-        ingredient TEXT
+        ingredient TEXT,
+        chemical_class TEXT,
+        large_availability TEXT
     )
 ''')
 
-# ---- Add new columns to ingredients table if missing ----
-
-def column_exists(table, column):
-    cursor.execute(f"PRAGMA table_info({table})")
-    return column in [row[1] for row in cursor.fetchall()]
-
-if not column_exists("ingredients", "chemical_class"):
-    cursor.execute("ALTER TABLE ingredients ADD COLUMN chemical_class TEXT")
-
-if not column_exists("ingredients", "large_availability"):
-    cursor.execute("ALTER TABLE ingredients ADD COLUMN large_availability TEXT")
-
-# Commit and close
 conn.commit()
 conn.close()
 
-print("✅ Database initialized and schema updated")
+print("✅ Database initialized with all necessary tables.")
