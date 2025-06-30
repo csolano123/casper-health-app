@@ -47,12 +47,13 @@ with tab1:
 with tab2:
     st.header("About Casper")
     st.markdown("""
-        I'm Casper, a gentle and dramatic kitty recovering from a urinary blockage.  
-        I love snuggling, knocking over water cups, and hunting flies indoors.  
+        I'm Casper, a gentle dog-cat.  
+        I love snuggling, knocking over any items on counters, and sleeping for many hours. Oh, how can I forget?
+        I love to eat my dry food!  
 
-        **Age:** 2 years  
-        **Favorite toy:** Crinkle tunnel  
-        **Special skill:** Sits in litter box even when he's not peeing.  
+        **Age:** 5 years  
+        **Favorite toy:** feather wand  
+        **Special skill:** Super fast rolls on the floor while being pet.  
     """)
 
 # ---------------- Photos ----------------
