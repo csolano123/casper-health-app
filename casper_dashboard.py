@@ -34,13 +34,13 @@ with tab1:
     st.image("casper.jpg", caption="Casper, the king of the house", use_container_width=True)
     st.header("Welcome to Casper's Site!")
     st.markdown("""
-            This is **Casper’s website**!
+            🐾🐾🐾 This is **Casper’s website**! 🐾🐾🐾
             From here you can:
             - Learn more **About Me**
             - View cute **Photos**
             - Track my **Health**
 
-            Use the **sidebar** to get started 🐾
+     🐾
         """)
 
 # ---------------- About Me ----------------
